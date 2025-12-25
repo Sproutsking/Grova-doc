@@ -344,60 +344,71 @@
     </style>
 </head>
 <body>
+    <!-- Grid Accent Lines -->
+    <div class="grid-accent-vertical" style="left: 15%;"></div>
+    <div class="grid-accent-vertical" style="left: 35%;"></div>
+    <div class="grid-accent-vertical" style="left: 50%;"></div>
+    <div class="grid-accent-vertical" style="left: 65%;"></div>
+    <div class="grid-accent-vertical" style="left: 85%;"></div>
+    
+    <div class="grid-accent-horizontal" style="top: 20%;"></div>
+    <div class="grid-accent-horizontal" style="top: 40%;"></div>
+    <div class="grid-accent-horizontal" style="top: 60%;"></div>
+    <div class="grid-accent-horizontal" style="top: 80%;"></div>
+
     <!-- Coming Soon Modal -->
     <div id="coming-soon-modal" class="modal-overlay">
-        <div class="modal-content glass-card-strong rounded-3xl p-8 md:p-12 max-w-2xl w-full relative overflow-hidden">
-            <!-- Particles -->
+        <div class="modal-content glass-card-strong rounded-3xl max-w-2xl w-full relative overflow-hidden responsive-card">
             <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
             <div class="particle" style="left: 30%; animation-delay: 0.5s;"></div>
             <div class="particle" style="left: 50%; animation-delay: 1s;"></div>
             <div class="particle" style="left: 70%; animation-delay: 1.5s;"></div>
             <div class="particle" style="left: 90%; animation-delay: 2s;"></div>
 
-            <button id="close-modal" class="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button id="close-modal" class="absolute top-4 right-4 md:top-5 md:right-5 w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all">
+                <svg class="w-4 h-4 md:w-5 md:h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
             </button>
 
             <div class="text-center relative z-10">
-                <div class="inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-lime-500 to-lime-600 rounded-3xl mb-6 rocket-animation shadow-2xl shadow-lime-500/50">
-                    <span class="text-4xl md:text-5xl">🚀</span>
+                <div class="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-lime-500 to-lime-600 rounded-3xl mb-5 rocket-animation shadow-2xl shadow-lime-500/50">
+                    <span class="text-3xl md:text-4xl">🚀</span>
                 </div>
 
-                <h3 class="text-3xl md:text-5xl font-black mb-4">
+                <h3 class="text-2xl md:text-4xl font-black mb-3">
                     <span class="gradient-text">Coming Soon!</span>
                 </h3>
                 
-                <p class="text-base md:text-lg text-gray-400 mb-8 max-w-md mx-auto leading-relaxed">
+                <p class="section-description text-gray-400 mb-6 max-w-md mx-auto leading-relaxed">
                     We're putting the final touches on something incredible. GROVA is launching soon to revolutionize storytelling forever.
                 </p>
 
-                <div class="glass-card rounded-2xl p-6 md:p-8 mb-6">
-                    <div class="grid grid-cols-3 gap-4 md:gap-6">
+                <div class="glass-card rounded-2xl p-5 md:p-6 mb-5">
+                    <div class="grid grid-cols-3 gap-3 md:gap-5">
                         <div>
-                            <div class="text-2xl md:text-4xl font-bold gradient-text mb-1">25</div>
-                            <div class="text-xs md:text-sm text-gray-500">Days</div>
+                            <div class="stat-number font-bold gradient-text mb-1">25</div>
+                            <div class="stat-label text-gray-500">Days</div>
                         </div>
                         <div>
-                            <div class="text-2xl md:text-4xl font-bold gradient-text mb-1">14</div>
-                            <div class="text-xs md:text-sm text-gray-500">Hours</div>
+                            <div class="stat-number font-bold gradient-text mb-1">14</div>
+                            <div class="stat-label text-gray-500">Hours</div>
                         </div>
                         <div>
-                            <div class="text-2xl md:text-4xl font-bold gradient-text mb-1">37</div>
-                            <div class="text-xs md:text-sm text-gray-500">Minutes</div>
+                            <div class="stat-number font-bold gradient-text mb-1">37</div>
+                            <div class="stat-label text-gray-500">Minutes</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="space-y-3">
-                    <input type="email" placeholder="Enter your email for early access" class="w-full px-4 md:px-6 py-3 md:py-4 rounded-xl bg-black/40 border border-gray-800 focus:border-lime-500/50 outline-none text-white placeholder-gray-600 transition-all text-sm md:text-base">
-                    <button class="w-full px-6 py-3 md:py-4 rounded-xl font-bold bg-gradient-to-r from-lime-500 to-lime-600 text-black hover:from-lime-400 hover:to-lime-500 transition-all shadow-lg shadow-lime-500/30 text-sm md:text-base">
+                <div class="space-y-2.5">
+                    <input type="email" placeholder="Enter your email for early access" class="w-full px-4 md:px-5 py-2.5 md:py-3 rounded-xl bg-black/40 border border-gray-800 focus:border-lime-500/50 outline-none text-white placeholder-gray-600 transition-all text-sm">
+                    <button class="w-full px-5 py-2.5 md:py-3 rounded-xl font-bold bg-gradient-to-r from-lime-500 to-lime-600 text-black hover:from-lime-400 hover:to-lime-500 transition-all shadow-lg shadow-lime-500/30 text-sm">
                         Notify Me at Launch
                     </button>
                 </div>
 
-                <p class="text-xs md:text-sm text-gray-600 mt-6">Join 2,847 creators already on the waitlist</p>
+                <p class="text-xs text-gray-600 mt-5">Join 2,847 creators already on the waitlist</p>
             </div>
         </div>
     </div>
@@ -407,61 +418,56 @@
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4">
+        <div class="max-w-7xl mx-auto px-4 md:px-5 lg:px-6 py-2.5 md:py-3">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center gap-2 md:gap-3">
-                    <div class="w-9 h-9 md:w-10 md:h-10 bg-gradient-to-br from-lime-400 to-lime-600 rounded-xl flex items-center justify-center font-bold text-black text-lg md:text-xl shadow-lg">
+                <div class="flex items-center gap-2 md:gap-2.5">
+                    <div class="w-8 h-8 md:w-9 md:h-9 bg-gradient-to-br from-lime-400 to-lime-600 rounded-xl flex items-center justify-center font-bold text-black text-base md:text-lg shadow-lg">
                         G
                     </div>
                     <div>
-                        <h1 class="text-lg md:text-xl font-bold gradient-text">GROVA</h1>
+                        <h1 class="text-base md:text-lg font-bold gradient-text">GROVA</h1>
                         <p class="text-xs text-gray-600 hidden md:block">Every Word Seeds Value</p>
                     </div>
                 </div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-6 lg:gap-8">
+                <div class="hidden md:flex items-center gap-5 lg:gap-7">
                     <a href="#features" class="nav-link text-sm text-gray-400 hover:text-lime-400 font-medium">Features</a>
                     <a href="#tokenomics" class="nav-link text-sm text-gray-400 hover:text-lime-400 font-medium">Tokenomics</a>
                     <a href="#elite" class="nav-link text-sm text-gray-400 hover:text-lime-400 font-medium">Elite 20</a>
                     <a href="#roadmap" class="nav-link text-sm text-gray-400 hover:text-lime-400 font-medium">Roadmap</a>
                 </div>
 
-                <!-- CTA Buttons -->
-                <div class="hidden md:flex items-center gap-3">
-                    <button class="px-4 lg:px-5 py-2 text-sm rounded-xl font-semibold text-white border border-gray-800 hover:border-lime-500/50 transition-all">
+                <div class="hidden md:flex items-center gap-2.5">
+                    <button class="px-4 py-2 text-sm rounded-xl font-semibold text-white border border-gray-800 hover:border-lime-500/50 transition-all">
                         Login
                     </button>
-                    <button class="launch-btn px-4 lg:px-5 py-2 text-sm rounded-xl font-bold bg-gradient-to-r from-lime-500 to-lime-600 text-black hover:from-lime-400 hover:to-lime-500 transition-all shadow-lg shadow-lime-500/30">
+                    <button class="launch-btn px-4 py-2 text-sm rounded-xl font-bold bg-gradient-to-r from-lime-500 to-lime-600 text-black hover:from-lime-400 hover:to-lime-500 transition-all shadow-lg shadow-lime-500/30">
                         Launch App
                     </button>
                 </div>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-lime-400 w-10 h-10 flex items-center justify-center">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-lime-400 w-9 h-9 flex items-center justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu md:hidden top-0 left-0 h-screen w-72 glass-card-strong border-r border-white/10 p-6">
-            <button id="close-menu" class="absolute top-6 right-6 text-gray-400 hover:text-lime-400 w-10 h-10 flex items-center justify-center">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div id="mobile-menu" class="mobile-menu md:hidden top-0 left-0 h-screen w-72 glass-card-strong border-r border-white/10 p-5">
+            <button id="close-menu" class="absolute top-5 right-5 text-gray-400 hover:text-lime-400 w-9 h-9 flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
             </button>
-            <div class="flex flex-col gap-6 mt-16">
-                <a href="#features" class="text-gray-400 hover:text-lime-400 font-medium text-base">Features</a>
-                <a href="#tokenomics" class="text-gray-400 hover:text-lime-400 font-medium text-base">Tokenomics</a>
-                <a href="#elite" class="text-gray-400 hover:text-lime-400 font-medium text-base">Elite 20</a>
-                <a href="#roadmap" class="text-gray-400 hover:text-lime-400 font-medium text-base">Roadmap</a>
-                <div class="pt-6 border-t border-gray-900 space-y-3">
-                    <button class="w-full px-5 py-3 text-sm rounded-xl font-semibold text-white border border-gray-800">Login</button>
-                    <button class="launch-btn w-full px-5 py-3 text-sm rounded-xl font-bold bg-gradient-to-r from-lime-500 to-lime-600 text-black">Launch App</button>
+            <div class="flex flex-col gap-5 mt-14">
+                <a href="#features" class="text-gray-400 hover:text-lime-400 font-medium text-sm">Features</a>
+                <a href="#tokenomics" class="text-gray-400 hover:text-lime-400 font-medium text-sm">Tokenomics</a>
+                <a href="#elite" class="text-gray-400 hover:text-lime-400 font-medium text-sm">Elite 20</a>
+                <a href="#roadmap" class="text-gray-400 hover:text-lime-400 font-medium text-sm">Roadmap</a>
+                <div class="pt-5 border-t border-gray-900 space-y-2.5">
+                    <button class="w-full px-4 py-2.5 text-sm rounded-xl font-semibold text-white border border-gray-800">Login</button>
+                    <button class="launch-btn w-full px-4 py-2.5 text-sm rounded-xl font-bold bg-gradient-to-r from-lime-500 to-lime-600 text-black">Launch App</button>
                 </div>
             </div>
         </div>
