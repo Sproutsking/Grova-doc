@@ -141,7 +141,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 4
 .logo:hover .logo-mark{box-shadow:0 0 18px var(--lime-s)}
 .logo-name{font-family:var(--fd);font-size:17px;letter-spacing:6px;color:var(--t1);transition:color .3s}
 
-.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links{display:flex;align-items:center;gap:24px}
 .nav-links a{font-size:10px;font-weight:700;color:var(--t2);text-decoration:none;text-transform:uppercase;letter-spacing:1.5px;transition:color .2s;cursor:pointer}
 .nav-links a:hover,.nav-links a.on{color:var(--t1)}
 .nav-links a.on{color:var(--lime)}
@@ -168,8 +168,8 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 4
 [data-theme="light"] .mob-close{background:rgba(10,12,40,0.04);border-color:rgba(10,12,40,0.12)}
 .mob-close:hover{background:var(--lime-d);border-color:var(--lime)}
 .mob-close svg{stroke:var(--t1);width:18px;height:18px}
-.mob-links{flex:1;display:flex;flex-direction:column;justify-content:center;padding:12px 24px;gap:0}
-.mob-links a{display:flex;align-items:center;gap:18px;font-family:var(--fd);font-size:30px;letter-spacing:2px;color:rgba(232,230,223,0.62);padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05);transition:all .22s;cursor:pointer}
+.mob-links{flex:1;display:flex;flex-direction:column;justify-content:center;padding:12px 24px;gap:0;overflow-y:auto}
+.mob-links a{display:flex;align-items:center;gap:18px;font-family:var(--fd);font-size:26px;letter-spacing:2px;color:rgba(232,230,223,0.62);padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.05);transition:all .22s;cursor:pointer}
 [data-theme="light"] .mob-links a{color:rgba(10,12,40,0.52);border-bottom-color:rgba(10,12,40,0.06)}
 .mob-links a:hover{color:var(--t1);padding-left:8px}
 .mob-links a:last-child{border-bottom:none}
@@ -194,6 +194,8 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 4
 @media(max-width:640px){.cg{grid-template-columns:1fr;gap:12px}}
 .cg3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 @media(max-width:860px){.cg3{grid-template-columns:1fr}}
+.cg2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:700px){.cg2{grid-template-columns:1fr}}
 
 .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:12px;margin-top:40px}
 .sc{position:relative;overflow:hidden;background:var(--glass);border:1px solid var(--glass-b);border-radius:14px;padding:22px 18px;backdrop-filter:blur(14px);transition:border-color .3s,transform .28s,box-shadow .3s}
@@ -315,8 +317,6 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 4
 .access-perk{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--t1)}
 .access-perk svg{width:16px;height:16px;stroke:var(--lime);flex-shrink:0}
 
-/* CAPABILITY / TEASER CARDS use .gc/.cg above */
-
 /* PRODUCT SUB-NAV (pill tabs) */
 .subnav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:48px}
 .subnav a{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t2);padding:9px 18px;border:1px solid var(--glass-b);border-radius:100px;background:var(--glass);transition:all .22s;cursor:pointer}
@@ -338,6 +338,17 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 4
 .id-mob-item{background:var(--glass);padding:14px 18px;display:flex;align-items:center;gap:12px;backdrop-filter:blur(12px)}
 .id-mob-item span.dot{width:7px;height:7px;border-radius:50%;background:var(--lime);flex-shrink:0;box-shadow:0 0 8px var(--lime)}
 .id-mob-item span.tx{font-family:var(--fd);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t1)}
+
+/* CALLOUT (canonical quote box) */
+.callout{position:relative;overflow:hidden;background:var(--glass);border:1px solid var(--glass-b);border-radius:16px;backdrop-filter:blur(20px)}
+.callout .inner{position:relative;z-index:1;padding:28px 26px}
+.callout p{font-family:var(--fs);font-style:italic;font-size:clamp(16px,1.8vw,20px);color:var(--t1);line-height:1.85;opacity:.92}
+
+/* FLOW LIST (numbered arrow steps) */
+.flow-list{display:flex;flex-direction:column;gap:9px;margin:20px 0 36px}
+.flow-item{display:flex;align-items:flex-start;gap:12px;font-size:12.5px;color:var(--t2);line-height:1.8}
+.flow-item .fi-dash{color:var(--a,var(--lime));flex-shrink:0;font-weight:700}
+.flow-item .ac{color:var(--t1)}
 
 /* TEAM CARDS */
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
@@ -431,8 +442,11 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
 [data-theme="light"] #v-whatis .lf{background:radial-gradient(circle at 50% 25%,rgba(168,13,76,0.12),transparent 50%)!important}
 [data-theme="light"] #v-problem .lf{background:radial-gradient(circle at 82% 15%,rgba(4,95,192,0.12),transparent 50%)!important}
 [data-theme="light"] #v-relationships .lf{background:radial-gradient(circle at 25% 65%,rgba(83,32,176,0.13),transparent 50%)!important}
+[data-theme="light"] #v-ownership .lf{background:radial-gradient(circle at 78% 22%,rgba(168,13,76,0.12),transparent 50%)!important}
 [data-theme="light"] #h-ep .lf{background:radial-gradient(circle at 80% 62%,rgba(184,80,12,0.14),transparent 50%)!important}
-[data-theme="light"] #v-finance .lf{background:radial-gradient(circle at 28% 58%,rgba(83,32,176,0.14),transparent 50%)!important}
+[data-theme="light"] #v-epeconomy .lf{background:radial-gradient(circle at 28% 58%,rgba(83,32,176,0.14),transparent 50%)!important}
+[data-theme="light"] #v-adeconomy .lf{background:radial-gradient(circle at 76% 30%,rgba(184,80,12,0.13),transparent 50%)!important}
+[data-theme="light"] #v-equilibrium .lf{background:radial-gradient(circle at 24% 66%,rgba(83,32,176,0.13),transparent 50%)!important}
 [data-theme="light"] #v-ecosystem .lf{background:radial-gradient(circle at 72% 28%,rgba(13,122,64,0.12),transparent 50%)!important}
 
 /* VIEW SWITCHING */
@@ -466,6 +480,7 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
   <div class="nav-links" id="navLinks">
     <a data-view="home" onclick="showView('home')">Home</a>
     <a data-view="communities" onclick="showView('communities')">Communities</a>
+    <a data-view="product" onclick="showView('product')">Product</a>
     <a data-view="about" onclick="showView('about')">About</a>
     <a data-view="vision" onclick="showView('vision')">Vision</a>
     <a data-view="docs" onclick="showView('docs')">Documentation</a>
@@ -495,9 +510,10 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
   <div class="mob-links">
     <a onclick="showView('home');toggleMob()"><span class="mob-n">01</span>Home</a>
     <a onclick="showView('communities');toggleMob()"><span class="mob-n">02</span>Communities</a>
-    <a onclick="showView('about');toggleMob()"><span class="mob-n">03</span>About</a>
-    <a onclick="showView('vision');toggleMob()"><span class="mob-n">04</span>Vision</a>
-    <a onclick="showView('docs');toggleMob()"><span class="mob-n">05</span>Documentation</a>
+    <a onclick="showView('product');toggleMob()"><span class="mob-n">03</span>Product</a>
+    <a onclick="showView('about');toggleMob()"><span class="mob-n">04</span>About</a>
+    <a onclick="showView('vision');toggleMob()"><span class="mob-n">05</span>Vision</a>
+    <a onclick="showView('docs');toggleMob()"><span class="mob-n">06</span>Documentation</a>
   </div>
   <div class="mob-foot"><button class="mob-enter" onclick="joinXeevia();toggleMob()">Join Xeevia</button></div>
 </nav>
@@ -603,11 +619,12 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
   <div class="li" style="--a:var(--violet)">
     <div class="ey"><span class="ey-n">04</span><span class="ey-l"></span>Underneath It All</div>
     <h2 class="lh">There's more<br><span class="ac">beneath the surface.</span></h2>
-    <p class="wh">Xeevia starts with a simple social experience and gradually introduces new ways to participate, build your presence, and interact with the ecosystem.</p>
-    <div class="cg3">
-      <div class="gc" style="--a:var(--ember)"><div class="inner"><div class="c-tag">Engagement</div><div class="c-h">Your participation matters</div><p class="c-p">Xeevia has an engagement system designed to support interaction throughout the platform.</p><br><a class="tc-read" style="color:var(--ember);background:linear-gradient(var(--s1),var(--s1)) padding-box,linear-gradient(120deg,var(--ember),rgba(255,155,84,.2) 50%,var(--ember)) border-box" onclick="showView('product');scrollHome('#p-ep')">Learn more<span class="tc-read-arrow" style="opacity:1;width:10px;transform:none"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div></div>
+    <p class="wh">Xeevia starts with a simple social experience and gradually introduces new ways to participate, build your presence, own your network, and interact with the ecosystem.</p>
+    <div class="cg">
+      <div class="gc" style="--a:var(--ember)"><div class="inner"><div class="c-tag">Engagement</div><div class="c-h">Your participation matters</div><p class="c-p">Xeevia has an engagement system designed to support interaction throughout the platform — down to individual comments.</p><br><a class="tc-read" style="color:var(--ember);background:linear-gradient(var(--s1),var(--s1)) padding-box,linear-gradient(120deg,var(--ember),rgba(255,155,84,.2) 50%,var(--ember)) border-box" onclick="showView('product');scrollHome('#p-ep')">Learn more<span class="tc-read-arrow" style="opacity:1;width:10px;transform:none"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div></div>
       <div class="gc" style="--a:var(--lime)"><div class="inner"><div class="c-tag">Reputation</div><div class="c-h">Your presence develops over time</div><p class="c-p">Your participation can contribute to how your presence develops over time.</p><br><a class="tc-read" onclick="showView('product');scrollHome('#p-reputation')">Learn more<span class="tc-read-arrow" style="opacity:1;width:10px;transform:none"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div></div>
       <div class="gc" style="--a:var(--ion)"><div class="inner"><div class="c-tag">Identity</div><div class="c-h">More than a username</div><p class="c-p">Your Xeevia profile can become more than simply a username and profile picture.</p><br><a class="tc-read" style="color:var(--ion);background:linear-gradient(var(--s1),var(--s1)) padding-box,linear-gradient(120deg,var(--ion),rgba(125,232,255,.2) 50%,var(--ion)) border-box" onclick="showView('product');scrollHome('#p-identity')">Learn more<span class="tc-read-arrow" style="opacity:1;width:10px;transform:none"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-tag">Ownership</div><div class="c-h">Your network stays yours</div><p class="c-p">The network you build can become economically meaningful without you ever having to sell it or hand it over.</p><br><a class="tc-read" style="color:var(--signal);background:linear-gradient(var(--s1),var(--s1)) padding-box,linear-gradient(120deg,var(--signal),rgba(255,77,141,.2) 50%,var(--signal)) border-box" onclick="showView('product');scrollHome('#p-ownership')">Learn more<span class="tc-read-arrow" style="opacity:1;width:10px;transform:none"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div></div>
     </div>
   </div>
 </section>
@@ -620,10 +637,10 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
   <div class="li" style="--a:var(--ember)">
     <div class="ey"><span class="ey-n">05</span><span class="ey-l"></span>How Interaction Works</div>
     <h2 class="lh">Engage. Participate.<br><span class="ac">Connect.</span></h2>
-    <p class="wh">Xeevia uses Engagement Points (EP) to support interactions throughout the platform.</p>
+    <p class="wh">Xeevia uses Engagement Points (EP) — a single operating currency — to support interactions throughout the platform.</p>
     <div class="ep-grid" style="max-width:600px">
       <div class="ep-card"><div class="ep-n">Like</div><div class="ep-h">2 EP</div><p class="ep-p">A small cost that keeps engagement genuine.</p></div>
-      <div class="ep-card"><div class="ep-n">Comment</div><div class="ep-h">4 EP</div><p class="ep-p">Adding to a conversation carries a little more weight.</p></div>
+      <div class="ep-card"><div class="ep-n">Comment</div><div class="ep-h">4 EP</div><p class="ep-p">Adding to a conversation carries a little more weight — and if it's good, it can earn its own share of what that post makes.</p></div>
     </div>
     <div class="cta-row" style="justify-content:flex-start;margin-top:28px;margin-bottom:0">
       <button class="btn-s" onclick="showView('product');scrollHome('#p-ep')">Learn about EP</button>
@@ -783,18 +800,21 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
 </main>
 
 <!-- ======================================================
-     VIEW: PRODUCT (Engagement / Reputation / Identity / Boost)
+     VIEW: PRODUCT (Engagement / Wallet / Ownership / Reputation / Identity / XEV / Boost)
      ====================================================== -->
 <main class="view" id="view-product">
   <section class="layer" data-lay="00" data-nm="PRODUCT" data-ac="#ff9b54" style="background:var(--s1)">
     <div class="li first" style="--a:var(--ember)">
       <div class="ey"><span class="ey-n">PRODUCT</span><span class="ey-l"></span>How Xeevia Works</div>
       <h2 class="lh">The systems<br><span class="ac">underneath the app.</span></h2>
-      <p class="wh" style="margin-bottom:32px">A closer look at Engagement Points, Reputation, Identity, and Profile Boost.</p>
+      <p class="wh" style="margin-bottom:32px">A closer look at Engagement Points, the EP Wallet, Network Ownership, Reputation, Identity, XEV, and Profile Boost.</p>
       <div class="subnav">
         <a onclick="scrollHome('#p-ep')">Engagement Points</a>
+        <a onclick="scrollHome('#p-wallet')">EP Wallet</a>
+        <a onclick="scrollHome('#p-ownership')">Network Ownership</a>
         <a onclick="scrollHome('#p-reputation')">Reputation</a>
         <a onclick="scrollHome('#p-identity')">Identity</a>
+        <a onclick="scrollHome('#p-xev')">XEV</a>
         <a onclick="scrollHome('#p-boost')">Profile Boost</a>
       </div>
     </div>
@@ -808,7 +828,7 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
       <div class="ey"><span class="ey-n">01</span><span class="ey-l"></span>Engagement Points</div>
       <h2 class="lh">Participation<br><span class="ac">with weight.</span></h2>
       <p class="ld" style="margin-bottom:8px">EP is what makes engagement on Xeevia mean something. Every meaningful action — liking, commenting, replying, posting — costs a small amount of EP. It's not about gating the platform; it's about making sure engagement reflects real intent instead of empty noise.</p>
-      <p class="ld">When a conversation you took part in creates real value, you can share in that value — weighted by your reputation and the quality of what you contributed, not just how often you show up.</p>
+      <p class="ld">EP is the entire operating economy of Xeevia — the one currency behind social activity, creator earnings, and the advertising economy. When a conversation you took part in creates real value, you can share in that value — weighted by your reputation and the quality of what you contributed, not just how often you show up.</p>
       <div class="ep-grid">
         <div class="ep-card"><div class="ep-n">01</div><div class="ep-h">Add funds</div><p class="ep-p">$1 becomes 100 EP, giving you the capacity to take part in the platform.</p></div>
         <div class="ep-card"><div class="ep-n">02</div><div class="ep-h">Spend to engage</div><p class="ep-p">Posting, commenting, and replying use EP — priced engagement, not free-for-all noise.</p></div>
@@ -820,15 +840,64 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
         <div class="sc"><div class="sv">4</div><div class="sl">EP per Comment</div></div>
         <div class="sc"><div class="sv">100</div><div class="sl">EP per $1</div></div>
       </div>
-      <p class="ep-not">Not daily login rewards, not post-to-earn, not comment farming — EP rewards genuine contribution.</p>
+
+      <div class="ey" style="margin-top:56px"><span class="ey-n">EARN</span><span class="ey-l"></span>Comments Earn Their Share</div>
+      <h3 class="lh" style="font-size:clamp(28px,4vw,48px);margin-bottom:18px">A good comment<br><span class="ac">gets paid too.</span></h3>
+      <p class="wh">A meaningful comment doesn't just add to a conversation — it can share in the value that conversation creates. When your comment earns likes and replies of its own, it's pulling weight in the post's economy, not just riding on it.</p>
+      <div class="callout" style="--a:var(--ember);max-width:760px;margin-bottom:28px">
+        <div class="inner"><p>Every like and reply a comment receives is tracked against that comment specifically. At the end of each day, the revenue a post has earned is settled between the post owner and the comment owner — weighted by how much engagement each comment pulled in.</p></div>
+      </div>
+      <div class="flow-list" style="--a:var(--ember)">
+        <div class="flow-item"><span class="fi-dash">—</span><span>Someone <span class="ac">likes or replies</span> to your comment on a post.</span></div>
+        <div class="flow-item"><span class="fi-dash">—</span><span>That engagement is <span class="ac">recorded against your comment</span>, not lost inside the post's total.</span></div>
+        <div class="flow-item"><span class="fi-dash">—</span><span>At the <span class="ac">end of the day</span>, the post's earned revenue is settled.</span></div>
+        <div class="flow-item"><span class="fi-dash">—</span><span>The <span class="ac">post owner and the comment owner</span> both receive a share.</span></div>
+        <div class="flow-item"><span class="fi-dash">—</span><span>Your share is <span class="ac">weighted by how much engagement your comment earned</span> that day, not by how often you posted.</span></div>
+      </div>
+      <p class="ep-not">A comment worth reading is a comment worth something. Not daily login rewards, not post-to-earn, not comment farming — EP rewards genuine contribution, down to the comment that earns it.</p>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <section class="layer" id="p-reputation" data-lay="02" data-nm="REPUTATION" data-ac="#c8f53a" style="background:var(--s1)">
+  <section class="layer" id="p-wallet" data-lay="02" data-nm="EP WALLET" data-ac="#ff9b54" style="background:var(--s1)">
+    <div class="li" style="--a:var(--ember)">
+      <div class="ey"><span class="ey-n">02</span><span class="ey-l"></span>EP Wallet Architecture</div>
+      <h2 class="lh">One balance.<br><span class="ac">Four purposes.</span></h2>
+      <p class="wh">EP is organized the way a well-run ledger separates balances by purpose without creating separate currencies. You hold one Xeevia EP balance, structured underneath into a small, intentional set of account purposes.</p>
+      <div class="ep-grid">
+        <div class="ep-card"><div class="ep-h">Available EP</div><p class="ep-p">The active balance used for everyday participation — likes, comments, boosts, community activity.</p></div>
+        <div class="ep-card"><div class="ep-h">Creator EP</div><p class="ep-p">Earnings your network generates — campaign revenue, network rewards.</p></div>
+        <div class="ep-card"><div class="ep-h">Savings EP</div><p class="ep-p">EP you deliberately set aside as a personal reserve for future participation.</p></div>
+        <div class="ep-card"><div class="ep-h">Locked EP</div><p class="ep-p">EP committed to an outcome until it resolves — campaign escrow, conditional rewards, pending settlement.</p></div>
+      </div>
+      <p class="ld" style="margin-top:28px;margin-bottom:8px">You move EP between purposes with a single action: transfer. Creator EP can move into Available or Savings EP. Available EP can move into Savings EP. Locked EP releases into Available EP once its condition resolves.</p>
+      <p class="ep-not">EP is created inside Xeevia, circulates inside Xeevia, and is retired inside Xeevia. No external transfer, withdrawal, or settlement — value stays inside the system that generated it.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="layer" id="p-ownership" data-lay="03" data-nm="NETWORK OWNERSHIP" data-ac="#ff4d8d">
+    <div class="lf" style="background:radial-gradient(circle at 20% 30%,rgba(255,77,141,0.06),transparent 50%)"></div>
+    <div class="li" style="--a:var(--signal)">
+      <div class="ey"><span class="ey-n">03</span><span class="ey-l"></span>Network Ownership</div>
+      <h2 class="lh">You built it.<br><span class="ac">You keep it.</span></h2>
+      <p class="wh">The network you build on Xeevia has measurable economic usefulness, without you needing to sell the network itself. You don't transfer your followers to an advertiser — you make qualified access available while continuing to own the relationship.</p>
+      <div class="cg">
+        <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Platform supplies infrastructure</div><p class="c-p">Not distribution economics controlled by the platform — infrastructure for you, the network owner, to use.</p></div></div>
+        <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Network becomes an economic asset</div><p class="c-p">Your audience isn't just an engagement metric for Xeevia — it's an asset that works for you.</p></div></div>
+        <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Relevance over raw numbers</div><p class="c-p">A small, highly relevant, trusted network can be worth more than a much larger, weakly relevant one.</p></div></div>
+      </div>
+      <p class="ep-not" style="margin-top:24px">You built the network. Your relationships create value. When that network produces measurable economic value, you participate in the value it creates.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="layer" id="p-reputation" data-lay="04" data-nm="REPUTATION" data-ac="#c8f53a" style="background:var(--s1)">
     <div class="li" style="--a:var(--lime)">
-      <div class="ey"><span class="ey-n">02</span><span class="ey-l"></span>Reputation</div>
+      <div class="ey"><span class="ey-n">04</span><span class="ey-l"></span>Reputation</div>
       <h2 class="lh">A presence that<br><span class="ac">develops over time.</span></h2>
       <p class="wh">Your reputation on Xeevia isn't a follower count. It's built from real, verified participation — and it grows the longer you genuinely take part.</p>
       <div class="cg">
@@ -841,10 +910,10 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
 
   <div class="divider"></div>
 
-  <section class="layer" id="p-identity" data-lay="03" data-nm="IDENTITY" data-ac="#7de8ff">
+  <section class="layer" id="p-identity" data-lay="05" data-nm="IDENTITY" data-ac="#7de8ff">
     <div class="lf" style="background:radial-gradient(circle at 18% 30%,rgba(125,232,255,0.065),transparent 50%)"></div>
     <div class="li" style="--a:var(--ion)">
-      <div class="ey"><span class="ey-n">03</span><span class="ey-l"></span>Identity</div>
+      <div class="ey"><span class="ey-n">05</span><span class="ey-l"></span>Identity</div>
       <h2 class="lh">More than a<br><span class="ac">username.</span></h2>
       <p class="wh">Your Xeevia profile can become more than simply a username and profile picture — a real, developing presence built around who you are and what you contribute.</p>
       <div class="cg">
@@ -856,9 +925,24 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
 
   <div class="divider"></div>
 
-  <section class="layer" id="p-boost" data-lay="04" data-nm="PROFILE BOOST" data-ac="#ff9b54" style="background:var(--s1)">
+  <section class="layer" id="p-xev" data-lay="06" data-nm="XEV" data-ac="#a78bfa" style="background:var(--s1)">
+    <div class="lf" style="background:radial-gradient(circle at 78% 30%,rgba(167,139,250,0.07),transparent 50%)"></div>
+    <div class="li" style="--a:var(--violet)">
+      <div class="ey"><span class="ey-n">06</span><span class="ey-l"></span>XEV</div>
+      <h2 class="lh">Pure<br><span class="ac">ownership.</span></h2>
+      <p class="wh">XEV is reserved for ownership of Xeevia itself, and is kept fully separate from EP, the everyday operating economy. XEV is not used for engagement, creator earnings, advertising, or follower rewards — it exists for one purpose only.</p>
+      <div class="cg2">
+        <div class="gc" style="--a:var(--lime)"><div class="inner"><div class="c-tag">EP</div><div class="c-h">Operating Economy</div><p class="c-p">Social and platform participation, creator earnings, advertising economy, follower rewards. Circulates entirely within Xeevia.</p></div></div>
+        <div class="gc" style="--a:var(--violet)"><div class="inner"><div class="c-tag">XEV</div><div class="c-h">Company Ownership</div><p class="c-p">Equity / ownership representation only. Not used for creator earnings, advertising, or follower rewards. Represents ownership rights as legally structured.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="layer" id="p-boost" data-lay="07" data-nm="PROFILE BOOST" data-ac="#ff9b54">
     <div class="li" style="--a:var(--ember)">
-      <div class="ey"><span class="ey-n">04</span><span class="ey-l"></span>Profile Boost</div>
+      <div class="ey"><span class="ey-n">07</span><span class="ey-l"></span>Profile Boost</div>
       <h2 class="lh">Extra visibility<br><span class="ac">for your profile.</span></h2>
       <p class="wh" style="margin-bottom:28px">Profile Boost gives your profile extra visibility in discovery and community feeds — included free for 6 months with early access.</p>
       <button class="btn-p" onclick="joinXeevia()">Activate my account</button>
@@ -876,8 +960,8 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
   <div class="li first" style="--a:var(--violet)">
     <div class="ey"><span class="ey-n">VISION</span><span class="ey-l"></span>What Xeevia Is Becoming</div>
     <h2 class="lh">The Xeevia<br><span class="ac">Vision.</span></h2>
-    <p class="wh">Xeevia starts as a social platform. <span class="ac">The vision goes much further — toward a singular source of truth beneath every platform on the internet.</span></p>
-    <p class="ld">Everything below is where we're headed, not everything you need to know to join today. Read as much or as little of this as you like.</p>
+    <p class="wh">Xeevia starts as a social platform and grows into social infrastructure. <span class="ac">Genuine participation becomes measurable, relationships and reputation become useful, and the value networks create can flow back to the people who build them.</span></p>
+    <p class="ld">Everything below is where we're headed, not everything you need to know to join today. Read as much or as little of this as you like — the full canonical detail lives in the Documentation.</p>
   </div>
 </section>
 
@@ -889,8 +973,11 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
     <div class="ey"><span class="ey-n">01</span><span class="ey-l"></span>Beneath The App</div>
     <h2 class="lh">What Xeevia<br><span class="ac">actually is.</span></h2>
     <p class="wh">Why does an identity layer even need to exist? <span class="ac">Because every platform makes you prove yourself again, freezes what you built, and owns the people who chose to know you.</span></p>
-    <div class="gc" style="--a:var(--signal);max-width:760px">
-      <div class="inner"><p style="font-family:var(--fs);font-style:italic;font-size:clamp(16px,1.8vw,20px);color:var(--t1);line-height:1.85;opacity:.92">Xeevia is the layer underneath all of it — where your evidence, your trust, your reputation, and your relationships belong to you, and travel with you, no matter which application you're standing in today.</p></div>
+    <div class="callout" style="--a:var(--signal);max-width:760px">
+      <div class="inner"><p>Xeevia is the layer underneath all of it — where your evidence, your trust, your reputation, your network ownership, and your relationships belong to you, and travel with you, no matter which application you're standing in today.</p></div>
+    </div>
+    <div class="callout" style="--a:var(--signal);max-width:760px;margin-top:16px">
+      <div class="inner"><p style="opacity:.85;font-size:.85em">Xeevia is not primarily an advertising company, not primarily a token company, and not a platform built to extract the economic value of people's relationships. Advertising, EP, reputation, and its other mechanisms exist to serve one deeper thesis: a social and economic network built around genuine participation.</p></div>
     </div>
     <p class="ep-not" style="margin-top:28px">Not a blockchain platform. Not an identity provider by itself. Not a follower-import tool. The infrastructure underneath the social platform you're already using.</p>
   </div>
@@ -951,37 +1038,160 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
 
 <div class="divider"></div>
 
-<section class="layer" id="v-finance" data-lay="05" data-nm="ECONOMIC LAYER" data-ac="#a78bfa" style="background:var(--s1)">
-  <div class="lf" style="background:radial-gradient(circle at 28% 58%,rgba(167,139,250,0.075),transparent 50%)"></div>
-  <div class="li" style="--a:var(--violet)">
-    <div class="ey"><span class="ey-n">05</span><span class="ey-l"></span>Native Finance</div>
-    <h2 class="lh">The Economic and<br><span class="ac">Financial Layer.</span></h2>
-    <p class="ld" style="margin-bottom:36px;max-width:680px">Wallets, payments, settlement, and cross-border value movement built directly into the identity and reputation layer — not bolted on afterward.</p>
+<!-- NETWORK OWNERSHIP -->
+<section class="layer" id="v-ownership" data-lay="05" data-nm="NETWORK OWNERSHIP" data-ac="#ff4d8d" style="background:var(--s1)">
+  <div class="lf" style="background:radial-gradient(circle at 78% 22%,rgba(255,77,141,0.065),transparent 50%)"></div>
+  <div class="li" style="--a:var(--signal)">
+    <div class="ey"><span class="ey-n">05</span><span class="ey-l"></span>Owning What You Build</div>
+    <h2 class="lh">Network<br><span class="ac">Ownership.</span></h2>
+    <p class="wh">The phrase "you own your network" only means something when ownership has consequences. <span class="ac">A creator doesn't need to transfer their followers to an advertiser — they grant qualified access, while keeping the relationship.</span></p>
+    <div class="callout" style="--a:var(--signal);max-width:760px;margin-bottom:36px">
+      <div class="inner"><p>You built the network. Your relationships create value. When that network produces measurable economic value, you participate in the value it creates.</p></div>
+    </div>
     <div class="cg">
-      <div class="gc" style="--a:var(--violet)"><div class="inner"><div class="c-tag">Finance</div><div class="c-h">Wallet and Payments</div><p class="c-p">Native to identity. No separate onboarding, no separate trust to establish.</p></div></div>
-      <div class="gc" style="--a:var(--violet)"><div class="inner"><div class="c-tag">Finance</div><div class="c-h">Cross-Border Settlement</div><p class="c-p">Value moves between verified identities without rebuilding trust at each border.</p></div></div>
-      <div class="gc" style="--a:var(--violet)"><div class="inner"><div class="c-tag">Economic</div><div class="c-h">Revenue Transparency</div><p class="c-p">Every flow — rewards, treasury, yields — defined before a line of code is written.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-tag">Traditional model</div><div class="c-h">Platform controls distribution</div><p class="c-p">The platform controls most of the economics of who sees what, and who gets paid for it.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-tag">Xeevia direction</div><div class="c-h">Infrastructure for network owners</div><p class="c-p">The platform supplies infrastructure so the network owner keeps the economics of their own audience.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-tag">Traditional model</div><div class="c-h">Audience as engagement asset</div><p class="c-p">The audience exists primarily to generate engagement value for the platform.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-tag">Xeevia direction</div><div class="c-h">Network as economic asset</div><p class="c-p">The network becomes an economic asset that works for the person who built it.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-tag">Traditional model</div><div class="c-h">Follower count dominates</div><p class="c-p">Raw follower count is treated as the main measure of value.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-tag">Xeevia direction</div><div class="c-h">Relevance, trust, and outcomes matter</div><p class="c-p">Relevance, trust, participation, and real outcomes matter more than raw size.</p></div></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<section class="layer" id="v-ecosystem" data-lay="06" data-nm="ECOSYSTEM" data-ac="#c8f53a">
+<!-- EP OPERATING ECONOMY -->
+<section class="layer" id="v-epeconomy" data-lay="06" data-nm="EP OPERATING ECONOMY" data-ac="#a78bfa">
+  <div class="lf" style="background:radial-gradient(circle at 28% 58%,rgba(167,139,250,0.075),transparent 50%)"></div>
+  <div class="li" style="--a:var(--violet)">
+    <div class="ey"><span class="ey-n">06</span><span class="ey-l"></span>One Currency, Many Purposes</div>
+    <h2 class="lh">EP — The Entire<br><span class="ac">Operating Economy.</span></h2>
+    <p class="wh">Xeevia's operating economy is unified around one underlying unit: EP. Instead of a different token for every activity, Xeevia keeps one underlying asset with a small number of account purposes beneath it.</p>
+    <div class="callout" style="--a:var(--violet);max-width:760px;margin-bottom:32px">
+      <div class="inner"><p>EP is created inside Xeevia, circulates inside Xeevia, and is retired inside Xeevia. It is not designed to move outside the ecosystem — there is no external transfer, withdrawal, or settlement. Value stays inside the system that generated it.</p></div>
+    </div>
+    <div class="ep-grid">
+      <div class="ep-card"><div class="ep-h">Available EP</div><p class="ep-p">Everyday participation — likes, comments, boosts, community activity.</p></div>
+      <div class="ep-card"><div class="ep-h">Creator EP</div><p class="ep-p">Earnings a creator's network generates — campaign revenue, network rewards.</p></div>
+      <div class="ep-card"><div class="ep-h">Savings EP</div><p class="ep-p">EP deliberately set aside as a personal reserve.</p></div>
+      <div class="ep-card"><div class="ep-h">Locked EP</div><p class="ep-p">EP committed to an outcome until it resolves — escrow, conditional rewards.</p></div>
+    </div>
+    <p class="ep-not" style="margin-top:28px">One EP asset ≠ one EP account. Each account purpose controls what its EP may be used for and when it becomes available — without fragmenting the underlying economy into multiple operating tokens.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- XEV -->
+<section class="layer" id="v-xev" data-lay="07" data-nm="XEV" data-ac="#a78bfa" style="background:var(--s1)">
+  <div class="lf" style="background:radial-gradient(circle at 74% 30%,rgba(167,139,250,0.07),transparent 50%)"></div>
+  <div class="li" style="--a:var(--violet)">
+    <div class="ey"><span class="ey-n">07</span><span class="ey-l"></span>Separate, On Purpose</div>
+    <h2 class="lh">XEV — Pure<br><span class="ac">Ownership.</span></h2>
+    <p class="wh">EP represents activity and value flow inside the Xeevia operating economy. <span class="ac">XEV is reserved for ownership of Xeevia itself, and is not used as the everyday engagement or platform economy.</span></p>
+    <div class="cg2">
+      <div class="gc" style="--a:var(--lime)"><div class="inner"><div class="c-tag">EP</div><div class="c-h">Operating economy</div><p class="c-p">Social and platform participation, creator earnings, the advertising economy, follower rewards. A small set of intentional EP account purposes. Circulates entirely within Xeevia.</p></div></div>
+      <div class="gc" style="--a:var(--violet)"><div class="inner"><div class="c-tag">XEV</div><div class="c-h">Company ownership</div><p class="c-p">Equity / ownership representation. Not used for creator earnings, advertising, or follower rewards. A separate ownership layer, representing ownership rights as legally structured.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AD ECONOMY -->
+<section class="layer" id="v-adeconomy" data-lay="08" data-nm="AD ECONOMY" data-ac="#ff9b54">
+  <div class="lf" style="background:radial-gradient(circle at 76% 30%,rgba(255,155,84,0.07),transparent 50%)"></div>
+  <div class="li" style="--a:var(--ember)">
+    <div class="ey"><span class="ey-n">08</span><span class="ey-l"></span>Demand Meets Network</div>
+    <h2 class="lh">The Xeevia<br><span class="ac">Advertising Economy.</span></h2>
+    <p class="wh">Advertising becomes one market built on top of the network infrastructure, not the definition of the platform. <span class="ac">A business with a legitimate need enters the Ad Centre — the Ad Engine finds qualified creator networks.</span></p>
+    <div class="cg2">
+      <div class="gc" style="--a:var(--ember)"><div class="inner"><div class="c-tag">Ad Centre</div><div class="c-h">Advertiser defines the demand</div><p class="c-p">Budget, location and radius, audience and interest, campaign duration, maximum creator count, and campaign objective.</p></div></div>
+      <div class="gc" style="--a:var(--ember)"><div class="inner"><div class="c-tag">Ad Engine</div><div class="c-h">System evaluates the network</div><p class="c-p">Creator eligibility, location fit, network relevance, reputation and trust, historical performance, contribution and result measurement.</p></div></div>
+    </div>
+    <div class="flow-list" style="--a:var(--ember);margin-top:32px">
+      <div class="flow-item"><span class="fi-dash">—</span><span>A business or person with a legitimate need <span class="ac">creates a campaign.</span></span></div>
+      <div class="flow-item"><span class="fi-dash">—</span><span>The advertiser <span class="ac">chooses budget, location, audience, timing,</span> and other requirements.</span></div>
+      <div class="flow-item"><span class="fi-dash">—</span><span>The <span class="ac">Ad Engine evaluates</span> Xeevia's network.</span></div>
+      <div class="flow-item"><span class="fi-dash">—</span><span><span class="ac">Eligible creators are identified</span> according to campaign-specific qualification.</span></div>
+      <div class="flow-item"><span class="fi-dash">—</span><span>The campaign <span class="ac">runs through those creator networks.</span></span></div>
+      <div class="flow-item"><span class="fi-dash">—</span><span>Xeevia <span class="ac">measures</span> the defined campaign results.</span></div>
+      <div class="flow-item"><span class="fi-dash">—</span><span>The creator allocation becomes a <span class="ac">100% equilibrium pool.</span></span></div>
+      <div class="flow-item"><span class="fi-dash">—</span><span>Each creator receives a share based on <span class="ac">qualifying contribution.</span></span></div>
+      <div class="flow-item"><span class="fi-dash">—</span><span>Xeevia takes its <span class="ac">defined platform commission.</span></span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EQUILIBRIUM + REVERSE NETWORK ECONOMY -->
+<section class="layer" id="v-equilibrium" data-lay="09" data-nm="EQUILIBRIUM" data-ac="#a78bfa" style="background:var(--s1)">
+  <div class="lf" style="background:radial-gradient(circle at 24% 66%,rgba(167,139,250,0.075),transparent 50%)"></div>
+  <div class="li" style="--a:var(--violet)">
+    <div class="ey"><span class="ey-n">09</span><span class="ey-l"></span>Closed, Fair, By Construction</div>
+    <h2 class="lh">The Equilibrium<br><span class="ac">Principle.</span></h2>
+    <p class="wh">The equilibrium model is a closed allocation system. If a campaign creates a creator pool, that pool represents 100% — shares assigned to eligible creators must resolve back to 100%, determined by qualifying contribution.</p>
+    <div class="callout" style="--a:var(--violet);max-width:760px;margin-bottom:28px">
+      <div class="inner"><p style="font-size:.85em">Creator Share = Creator qualifying value ÷ Total qualifying value × 100% of the creator pool</p></div>
+    </div>
+    <div class="sg" style="--a:var(--violet)">
+      <div class="sc"><div class="sv">₦1M</div><div class="sl">Campaign budget</div></div>
+      <div class="sc"><div class="sv">5%</div><div class="sl">Illustrative commission</div></div>
+      <div class="sc"><div class="sv">100%</div><div class="sl">Creator pool</div></div>
+      <div class="sc"><div class="sv">8%</div><div class="sl">Example: Creator A</div></div>
+    </div>
+    <div style="height:36px"></div>
+    <div class="ey"><span class="ey-n">REVERSE</span><span class="ey-l"></span>The Reverse Network Economy</div>
+    <h3 class="lh" style="font-size:clamp(28px,4vw,48px);margin-bottom:18px">Value <span class="ac">circulates back.</span></h3>
+    <p class="wh">Creator earnings can return a share to the strongest qualifying participants in the creator's own network. <span class="ac">10% of a creator's monthly EP earnings returns to their top 100 qualifying followers</span> — the network's value flows back through the people who helped build it, not just to the creator alone.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="layer" id="v-ecosystem" data-lay="10" data-nm="ECOSYSTEM" data-ac="#c8f53a">
   <div class="lf" style="background:radial-gradient(circle at 72% 28%,rgba(200,245,58,0.065),transparent 50%)"></div>
   <div class="li" style="--a:var(--lime)">
-    <div class="ey"><span class="ey-n">06</span><span class="ey-l"></span>Every Participant, A World</div>
+    <div class="ey"><span class="ey-n">10</span><span class="ey-l"></span>Every Participant, A World</div>
     <h2 class="lh">Built For Every<br><span class="ac">Kind Of Trust.</span></h2>
     <p class="ld" style="margin-bottom:36px;max-width:680px">Individuals, creators, businesses, communities, governments, universities, banks, and developers — each shaped precisely to what they actually need from a trust layer.</p>
     <div class="cg">
       <div class="gc"><div class="inner"><div class="c-h">Individuals</div><p class="c-p">Unified identity, portable reputation, real economic weight for genuine participation.</p></div></div>
-      <div class="gc"><div class="inner"><div class="c-h">Creators</div><p class="c-p">Ownership of work and audience that travels with you, not with the platform hosting you.</p></div></div>
+      <div class="gc"><div class="inner"><div class="c-h">Creators</div><p class="c-p">Ownership of work, audience, and network that travels with you, not with the platform hosting you.</p></div></div>
       <div class="gc"><div class="inner"><div class="c-h">Businesses</div><p class="c-p">Verified identity and portable trust that unlocks commerce and talent acquisition.</p></div></div>
       <div class="gc"><div class="inner"><div class="c-h">Communities</div><p class="c-p">Self-governed economies with treasury, marketplace, intelligence, and governance.</p></div></div>
       <div class="gc"><div class="inner"><div class="c-h">Governments</div><p class="c-p">Verified citizen identity and transparent, provable public records — at scale.</p></div></div>
       <div class="gc"><div class="inner"><div class="c-h">Universities</div><p class="c-p">Verified credentials and academic reputation tied to real, attributed contribution.</p></div></div>
       <div class="gc"><div class="inner"><div class="c-h">Banks</div><p class="c-p">Portable financial reputation. KYC solved once, at the infrastructure layer.</p></div></div>
       <div class="gc"><div class="inner"><div class="c-h">Developers</div><p class="c-p">Full API surface: Identity, Trust, Reputation, Oracle, Graph, Auth, Webhooks.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CANONICAL PRINCIPLES -->
+<section class="layer" id="v-principles" data-lay="11" data-nm="PRINCIPLES" data-ac="#ff4d8d" style="background:var(--s1)">
+  <div class="lf" style="background:radial-gradient(circle at 50% 20%,rgba(255,77,141,0.06),transparent 55%)"></div>
+  <div class="li" style="--a:var(--signal)">
+    <div class="ey"><span class="ey-n">11</span><span class="ey-l"></span>What Doesn't Change</div>
+    <h2 class="lh">Canonical Xeevia<br><span class="ac">Principles.</span></h2>
+    <p class="wh" style="margin-bottom:36px">The rule for every new feature: does it improve genuine participation, strengthen identity or trust, improve network usefulness, create legitimate economic opportunity, or help value circulate more fairly?</p>
+    <div class="cg">
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Simple on the surface</div><p class="c-p">The first user experience should feel like a social platform, not a financial protocol.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Intentional by design</div><p class="c-p">Meaningful engagement should be harder to manipulate.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Network over vanity</div><p class="c-p">Follower count alone should not define network value.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Trust matters</div><p class="c-p">Identity, reputation, relevance, and behavior should become useful infrastructure.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Ownership must have meaning</div><p class="c-p">Network ownership should eventually produce participation in network-generated value.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">One operating currency</div><p class="c-p">EP is the unified operating economy of Xeevia.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Separate ownership</div><p class="c-p">XEV is reserved for Xeevia company ownership, not everyday platform economics.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Closed equilibrium</div><p class="c-p">Creator and follower pools should resolve to 100% distribution.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Small platform extraction</div><p class="c-p">Xeevia can take a small commission while allowing most value to remain with participants.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Value should circulate</div><p class="c-p">Creator earnings can return 10% to the strongest qualifying participants in the creator's network.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Build before monetizing</div><p class="c-p">Economic mechanisms should strengthen the social network, not distort it.</p></div></div>
+      <div class="gc" style="--a:var(--signal)"><div class="inner"><div class="c-h">Let the system reveal itself</div><p class="c-p">New mechanisms can emerge from the consequences of the core principles.</p></div></div>
     </div>
   </div>
 </section>
@@ -1075,6 +1285,32 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
       </div>
     </div>
   </section>
+
+  <div class="divider"></div>
+
+  <section class="layer" id="d-economy" data-lay="03" data-nm="ECONOMIC MODEL" data-ac="#a78bfa" style="background:var(--s1)">
+    <div class="lf" style="background:radial-gradient(circle at 28% 58%,rgba(167,139,250,0.075),transparent 50%)"></div>
+    <div class="li" style="--a:var(--violet)">
+      <div class="ey"><span class="ey-n">03</span><span class="ey-l"></span>The Complete Loop</div>
+      <h2 class="lh">The Complete Xeevia<br><span class="ac">Economic Loop.</span></h2>
+      <p class="wh" style="margin-bottom:32px">Xeevia is the social infrastructure. People and communities build the network. Intentional engagement makes the network more credible. Reputation makes it more measurable. EP powers the operating economy. The Ad Centre and Ad Engine connect real demand to qualified networks. Equilibrium distributes value. XEV remains separate as the ownership layer.</p>
+      <div class="flow-list" style="--a:var(--violet)">
+        <div class="flow-item"><span class="fi-dash">01</span><span class="ac">Social Platform</span></div>
+        <div class="flow-item"><span class="fi-dash">02</span><span class="ac">Intentional Participation</span></div>
+        <div class="flow-item"><span class="fi-dash">03</span><span class="ac">Identity + Trust + Reputation</span></div>
+        <div class="flow-item"><span class="fi-dash">04</span><span class="ac">Network Ownership</span></div>
+        <div class="flow-item"><span class="fi-dash">05</span><span class="ac">Network Value</span></div>
+        <div class="flow-item"><span class="fi-dash">06</span><span class="ac">EP Operating Economy</span></div>
+        <div class="flow-item"><span class="fi-dash">07</span><span class="ac">Ad Centre + Ad Engine + Other Future Markets</span></div>
+        <div class="flow-item"><span class="fi-dash">08</span><span class="ac">Equilibrium Value Distribution</span></div>
+        <div class="flow-item"><span class="fi-dash">09</span><span class="ac">Creator Earnings</span></div>
+        <div class="flow-item"><span class="fi-dash">10</span><span class="ac">10% Network Participation Pool</span></div>
+        <div class="flow-item"><span class="fi-dash">11</span><span class="ac">Top 100 Qualifying Followers</span></div>
+        <div class="flow-item"><span class="fi-dash">12</span><span class="ac">Stronger Participation → Stronger Network</span></div>
+      </div>
+      <p class="ep-not">This is the current canonical working model. Implementation details, legal structures, formulas and percentages beyond the stated 10% mechanism, eligibility rules, and technical protocols remain open for disciplined future specification.</p>
+    </div>
+  </section>
 </main>
 
 <div class="divider"></div>
@@ -1107,12 +1343,14 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
       <li><a onclick="showView('home')">Home</a></li>
       <li><a onclick="showView('communities')">Communities</a></li>
       <li><a onclick="showView('product');scrollHome('#p-ep')">Engagement Points</a></li>
+      <li><a onclick="showView('product');scrollHome('#p-ownership')">Network Ownership</a></li>
       <li><a onclick="showView('product');scrollHome('#p-reputation')">Reputation</a></li>
     </ul></div>
     <div class="ft-col"><h5>Company</h5><ul>
       <li><a onclick="showView('about')">About</a></li>
       <li><a onclick="showView('vision')">Vision</a></li>
       <li><a onclick="showView('docs')">Documentation</a></li>
+      <li><a onclick="showView('product');scrollHome('#p-xev')">XEV</a></li>
     </ul></div>
     <div class="ft-col"><h5>Legal</h5><ul>
       <li><a href="#">Privacy</a></li>
@@ -1271,7 +1509,7 @@ setTimeout(fitTeamNames,150);
 (function(){
   const XV_BIOS={
     emmanuel:{nm:'Emmanuel',handle:'SproutsKing',rl:'Founder and CEO',fb:'E',img:'Sproutsking.png',
-      body:`<p>I didn't set out to build another technology company. I set out to answer one question: why does the digital economy keep rebuilding trust from zero, every time two people or businesses try to interact.</p><p>That question is the foundation Xeevia is built on. But the platform you can join today is simple by design — a social platform for people, communities, and conversations. The deeper architecture reveals itself as you go.</p><p>I lead the vision and direction of Xeevia, and I write the principles down as we build, because ideas deserve to be understood before they're adopted.</p>`},
+      body:`<p>I didn't set out to build another technology company. I set out to answer one question: why does the digital economy keep rebuilding trust from zero, every time two people or businesses try to interact.</p><p>That question is the foundation Xeevia is built on. But the platform you can join today is simple by design — a social platform for people, communities, and conversations. The deeper architecture — network ownership, the EP economy, and everything beneath it — reveals itself as you go.</p><p>I lead the vision and direction of Xeevia, and I write the principles down as we build, because ideas deserve to be understood before they're adopted.</p>`},
     nenkang:{nm:'Nenkang Bamayang',rl:'Chief Marketing Officer',fb:'N',img:'image2.png',
       body:`<p>Nenkang leads how the world encounters Xeevia for the first time. In a project where the ideas are as important as the infrastructure, the marketing function is not about reach alone — it is about ensuring that what people find when they discover Xeevia is something worth the discovery.</p><p>Nenkang builds the narrative, the channels, and the partnerships that bring Xeevia's vision to the audiences most ready to understand it and most positioned to help it grow.</p>`},
     douna:{nm:'Douna Empire',rl:'Social Media Manager',fb:'D',img:'image3.png',
