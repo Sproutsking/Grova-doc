@@ -412,6 +412,28 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:14px 4
   .bio-body{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:26px 24px calc(env(safe-area-inset-bottom) + 44px);font-size:15px;line-height:1.95}
 }
 
+/* COMING SOON MODAL */
+.cs-ov{position:fixed;inset:0;background:rgba(3,3,5,0.86);backdrop-filter:blur(20px);z-index:5000;display:none;align-items:center;justify-content:center;padding:20px}
+.cs-ov.on{display:flex;animation:csFade .25s ease both}
+@keyframes csFade{from{opacity:0}to{opacity:1}}
+.cs-modal{position:relative;overflow:hidden;background:var(--glass);border:1px solid rgba(200,245,58,0.22);border-radius:22px;max-width:420px;width:100%;backdrop-filter:blur(30px);box-shadow:0 40px 100px rgba(0,0,0,.7),0 0 70px rgba(200,245,58,0.08);text-align:center;padding:44px 32px 36px;animation:csRise .38s cubic-bezier(.16,1,.3,1) both}
+@keyframes csRise{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.cs-modal::before{content:"";position:absolute;inset:0;background:linear-gradient(155deg,var(--glass-hi),transparent 55%);pointer-events:none;border-radius:22px}
+[data-theme="light"] .cs-modal{background:rgba(255,255,255,0.97);border-color:rgba(13,122,64,0.24)}
+.cs-glow{position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:260px;height:260px;background:radial-gradient(circle,rgba(200,245,58,0.18),transparent 70%);filter:blur(22px);pointer-events:none}
+.cs-x{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10}
+.cs-x:hover{border-color:var(--lime);transform:rotate(90deg)}
+.cs-x svg{width:14px;height:14px;stroke:var(--t1)}
+.cs-badge{position:relative;z-index:1;width:56px;height:56px;margin:0 auto 22px;border-radius:50%;background:var(--lime-d);border:1.5px solid var(--lime-s);display:flex;align-items:center;justify-content:center}
+.cs-badge svg{width:24px;height:24px;stroke:var(--lime)}
+.cs-eyebrow{position:relative;z-index:1;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--lime);margin-bottom:14px}
+.cs-h{position:relative;z-index:1;font-family:var(--fd);font-size:clamp(30px,6vw,40px);letter-spacing:-.5px;text-transform:uppercase;color:var(--t1);line-height:1;margin-bottom:16px}
+.cs-p{position:relative;z-index:1;font-family:var(--fs);font-style:italic;font-size:14.5px;color:var(--t2);line-height:1.75;max-width:320px;margin:0 auto 28px}
+.cs-btn{position:relative;z-index:1;font-family:var(--fd);background:var(--t1);color:var(--bg);border:none;border-radius:6px;height:48px;padding:0 34px;font-size:12.5px;letter-spacing:2px;transition:all .28s cubic-bezier(.16,1,.3,1);box-shadow:0 3px 12px rgba(0,0,0,0.2)}
+[data-theme="light"] .cs-btn{color:#fff;box-shadow:0 4px 16px rgba(15,18,45,0.18)}
+.cs-btn:hover{background:var(--lime);color:#000;transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,0.28)}
+@media(max-width:480px){.cs-modal{padding:38px 24px 30px}}
+
 /* MANIFESTO */
 .manifesto{padding:clamp(70px,9vw,120px) clamp(20px,4vw,48px);text-align:center;position:relative}
 .mlines{max-width:900px;margin:0 auto}
@@ -1329,6 +1351,19 @@ footer{padding:64px 48px 28px;border-top:1px solid rgba(255,255,255,0.06);backgr
   </div>
 </div>
 
+<!-- COMING SOON OVERLAY -->
+<div class="cs-ov" id="csOv">
+  <div class="cs-modal">
+    <div class="cs-glow"></div>
+    <button class="cs-x" id="csCloseBtn" type="button" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="cs-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+    <div class="cs-eyebrow">Early Access</div>
+    <h3 class="cs-h">Coming Soon</h3>
+    <p class="cs-p">The Xeevia app is being polished for its first wave of users. We'll let the world in very soon — thanks for being early.</p>
+    <button class="cs-btn" id="csCloseBtn2" type="button">Got it</button>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="ft">
@@ -1388,7 +1423,23 @@ function scrollHome(id){
     if(t)t.scrollIntoView({behavior:'smooth'});
   });
 }
-function joinXeevia(){try{window.open('https://app.xeevia.com','_blank','noopener')}catch(e){/* popups blocked in sandboxed preview */}}
+// Join Xeevia currently opens a "Coming Soon" notice instead of navigating to the app.
+// Previously: window.open('https://app.xeevia.com','_blank','noopener')
+function joinXeevia(){
+  openComingSoon();
+}
+function openComingSoon(){
+  const ov=document.getElementById('csOv');
+  if(!ov)return;
+  ov.classList.add('on');
+  document.body.style.overflow='hidden';
+}
+function closeComingSoon(){
+  const ov=document.getElementById('csOv');
+  if(!ov)return;
+  ov.classList.remove('on');
+  document.body.style.overflow='';
+}
 
 // route from hash on load
 (function(){
@@ -1407,7 +1458,7 @@ function toggleMob(){
   document.body.style.overflow=isOpen?'':'hidden';
   h.classList.toggle('open',!isOpen);
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeBio();if(document.getElementById('mobNav').classList.contains('open'))toggleMob()}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeBio();closeComingSoon();if(document.getElementById('mobNav').classList.contains('open'))toggleMob()}});
 
 // ── THEME TOGGLE ──
 const SUN=`<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>`;
@@ -1545,6 +1596,14 @@ setTimeout(fitTeamNames,150);
     if(e.target.id==='bioOv'){xvCloseBio()}
   });
   window.closeBio=xvCloseBio;
+})();
+
+// ── COMING SOON MODAL WIRING ──
+(function(){
+  document.addEventListener('click',function(e){
+    if(e.target.closest&&(e.target.closest('#csCloseBtn')||e.target.closest('#csCloseBtn2'))){closeComingSoon();return}
+    if(e.target.id==='csOv'){closeComingSoon()}
+  });
 })();
 
 // ── FADE-IN OBSERVER ──
